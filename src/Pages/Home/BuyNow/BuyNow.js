@@ -31,7 +31,7 @@ const BuyNow = () => {
             address,
         }
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://online-shopping-server.vercel.app/orders', {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(orders)
@@ -49,8 +49,8 @@ const BuyNow = () => {
     return (
         <div className='w-[96%] mx-auto my-10'>
             <h1 className=' font-medium mb-10 text-4xl'>Order Your Product</h1>
-            <div className='flex justify-around items-center gap-10'>
-                <img className='w-1/2 rounded' src={photo} alt="" />
+            <div className='flex flex-col md:flex-row justify-around items-center gap-10'>
+                <img className='md:w-1/2 rounded' src={photo} alt="" />
                 <div className='w-full font-medium'>
                     <h1 className='text-4xl'>{name}</h1>
                     <p className='font-medium'>Price: ${price}</p>

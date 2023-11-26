@@ -11,7 +11,7 @@ const Home = () => {
     const [size, setSize] = useState(9);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products?page=${page}&size=${size}`)
+        fetch(`https://online-shopping-server.vercel.app/products?page=${page}&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data.count);
@@ -33,6 +33,7 @@ const Home = () => {
                     }
                 </div>
 
+                {/* Pagination */}
                 <div className='my-5 text-center flex justify-center items-center'>
                     <button onClick={() => {
                         if (page <= 0) {
@@ -42,7 +43,7 @@ const Home = () => {
                         else {
                             setPage(page - 1)
                         }
-                    }} className='text-xs m-4 border border-indigo-950 rounded px-2 py-[6px]'><IoIosArrowBack></IoIosArrowBack></button>
+                    }} className='text-xs m-4 border border-indigo-950 rounded px-2 py-[6px] hover:bg-indigo-700 hover:text-white'><IoIosArrowBack></IoIosArrowBack></button>
                     {
                         [...Array(pages).keys()].map(number => <button key={number}
                             onClick={() => setPage(number)}
@@ -57,7 +58,7 @@ const Home = () => {
                         else {
                             setPage(page + 1)
                         }
-                    }} className='text-xs m-4 border border-indigo-950 rounded px-2 py-[6px]'><IoIosArrowForward></IoIosArrowForward></button>
+                    }} className='text-xs m-4 border border-indigo-950 rounded px-2 py-[6px] hover:bg-indigo-700 hover:text-white'><IoIosArrowForward></IoIosArrowForward></button>
 
 
                     <select onChange={(event) => setSize(event.target.value)} className='m-4 outline-none cursor-pointer text-xs border border-indigo-950 rounded font-bold  py-1'>

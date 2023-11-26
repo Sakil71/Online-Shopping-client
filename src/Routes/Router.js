@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'orders',
-                loader: ()=> fetch('http://localhost:5000/orders'),
+                loader: ()=> fetch('https://online-shopping-server.vercel.app/orders'),
                 element: <PrivateRours><Orders></Orders></PrivateRours>
             },
             {
@@ -38,7 +38,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'buy/:id',
-                loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`),
+                loader: ({params})=> fetch(`https://online-shopping-server.vercel.app/products/${params.id}`),
                 element: <PrivateRours><BuyNow></BuyNow></PrivateRours>
             },
             {

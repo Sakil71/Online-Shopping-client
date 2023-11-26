@@ -10,7 +10,7 @@ const Header = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user?.email}`)
+        fetch(`https://online-shopping-server.vercel.app/orders?email=${user?.email}`)
             .then(res => res.json())
             .then(data => { setOrders(data); })
 
@@ -23,10 +23,10 @@ const Header = () => {
     }
 
     return (
-        <div className="navbar bg-base-100 px-10 font-medium sticky top-0 z-50">
+        <div className="navbar bg-base-100 px-2 md:px-10 font-medium sticky top-0 z-50">
 
             {/* For small screen */}
-            <div onClick={() => setOpen(!open)} className='md:hidden text-2xl z-20 cursor-pointer'>
+            <div onClick={() => setOpen(!open)} className='md:hidden h-10 w-10 text-3xl z-20 cursor-pointer'>
                 {
                     open ?
                         <IoIosCloseCircle></IoIosCloseCircle>
@@ -64,7 +64,7 @@ const Header = () => {
                     <label tabIndex={0} className="btn btn-ghost btn-circle">
 
                         <div className="indicator">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
                             <span className="badge badge-sm indicator-item bg-white">{orders.length}</span>
                         </div>
 

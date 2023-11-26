@@ -7,7 +7,7 @@ const Order = ({ order }) => {
     const [approve, setApprove] = useState(false);
 
     const handleApprove = (id) => {
-        fetch(`http://localhost:5000/orders/${order._id}`, {
+        fetch(`https://online-shopping-server.vercel.app/orders/${order._id}`, {
             method: "PATCH",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ status: "Approved" })

@@ -8,7 +8,7 @@ const Cart = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user?.email}`)
+        fetch(`https://online-shopping-server.vercel.app/orders?email=${user?.email}`)
             .then(res => res.json())
             .then(data => { setOrders(data); })
 
@@ -17,7 +17,7 @@ const Cart = () => {
     const handleCalcelOrder = (order) => {
         const agree = window.confirm(`Are you sure, you want to delete ${order.productName}`);
         if (agree) {
-            fetch(`http://localhost:5000/orders/${order._id}`, {
+            fetch(`https://online-shopping-server.vercel.app/orders/${order._id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

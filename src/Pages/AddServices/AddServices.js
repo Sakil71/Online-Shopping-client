@@ -18,7 +18,7 @@ const AddServices = () => {
             details: details
         };
 
-        fetch('http://localhost:5000/products', {
+        fetch('https://online-shopping-server.vercel.app/products', {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(products)
@@ -33,7 +33,7 @@ const AddServices = () => {
     }
     return (
         <div className="hero">
-            <div className="hero-content w-3/4 mx-auto">
+            <div className="hero-content w-[96%] md:w-3/4 mx-auto">
                 <div className="card shrink-0 w-full shadow-2xl bg-base-100">
                     <form onSubmit={handleProductsData} className="card-body w-full">
                         <p><small>Admin page</small></p>
